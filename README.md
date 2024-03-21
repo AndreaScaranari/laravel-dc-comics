@@ -19,3 +19,11 @@ Ci servirà una rotta per il form e un'altra per l'effettiva creazione del film 
 Aiutatevi con slide e documentazione!
 ### BONUS
 provare a implementare una minima validazione come visto stamattina!
+
+## Data: 15/03
+Proseguiamo con l'esercizio Comics e aggiungiamo la possibilità di modificare un fumetto!<br>
+Ci servirà una rotta per il form e un'altra per l'effettiva modifica del film nel database!<br>
+Aiutatevi con slide e documentazione!
+### BONUS
+- Provare a implementare la validazione come visto stamattina!
+- Provare a unire i form di edit e create.
