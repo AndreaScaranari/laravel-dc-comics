@@ -16,6 +16,8 @@
 
     <div class="container">
 
+        <h1 class="text-center">Crea Comic</h1>
+
         @if ($errors->any())
             <div class="bg-danger text-white rounded p-3  mb-3">
                 Gli errori presenti in pagina sono i seguenti:

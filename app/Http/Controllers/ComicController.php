@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
@@ -41,6 +42,7 @@ class ComicController extends Controller
             'writers' => 'required|string',
             'thumb' => 'required|string',
             'description' => 'required|string',
+            'slug' => 'nullable|string'
         ]);
 
         $data = $request->all();
@@ -57,6 +59,8 @@ class ComicController extends Controller
         // $comic->description = $data['description'];
 
         $comic->fill($data);
+
+        $comic->slug = Str::slug($comic->title);
 
         $comic->save();
 
@@ -76,7 +80,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -84,7 +88,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        // $comic->fill($data);
+        // $comic->slug = Str::slug($comic->title);
+        
+        $comic->update($data);
+        $data['slug'] = Str::slug($data['title']);
+
+        // $comic->save();
+        return to_route('comics.show', $comic->id);
     }
 
     /**
