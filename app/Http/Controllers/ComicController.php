@@ -30,22 +30,37 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required|string',
+            'series' => 'required|string',
+            'sale_date' => 'required|date',
+            'price' => 'required|numeric',
+            'type' => 'required|string',
+            'artists' => 'required|string',
+            'writers' => 'required|string',
+            'thumb' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
         $data = $request->all();
 
-        $newComic = new Comic();
-        $newComic->title = $data['title'];
-        $newComic->series = $data['series'];
-        $newComic->sale_date = $data['sale_date'];
-        $newComic->price = $data['price'];
-        $newComic->type = $data['type'];
-        $newComic->artists = $data['artists'];
-        $newComic->writers = $data['writers'];
-        $newComic->thumb = $data['thumb'];
-        $newComic->description = $data['description'];
+        $comic = new Comic();
+        // $comic->title = $data['title'];
+        // $comic->series = $data['series'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->price = $data['price'];
+        // $comic->type = $data['type'];
+        // $comic->artists = $data['artists'];
+        // $comic->writers = $data['writers'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->description = $data['description'];
 
-        $newComic->save();
+        $comic->fill($data);
 
-        return to_route('comics.index');
+        $comic->save();
+
+        return to_route('comics.show', $comic->id);
     }
 
     /**
