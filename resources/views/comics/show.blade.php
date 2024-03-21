@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-evenly">
-                <a href="{{ route('comics.index') }}" class="btn btn-info">Go Back!</a>
                 <a href="{{ url("/comics/$comic->id/edit") }}" class="btn btn-warning">Modifica</a>
+                <a href="{{ route('comics.index') }}" class="btn btn-secondary">Go Back!</a>
             </div>
         </div>
     </main>

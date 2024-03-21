@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -23,7 +24,8 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('comics.create');
+        $comic = new Comic();
+        return view('comics.create', compact('comic'));
     }
 
     /**
@@ -88,14 +90,27 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        $request->validate([
+            'title' => 'required|string',
+            'series' => 'required|string',
+            'sale_date' => 'required|date',
+            'price' => 'required|numeric',
+            'type' => 'required|string',
+            'artists' => 'required|string',
+            'writers' => 'required|string',
+            'thumb' => 'required|string',
+            'description' => 'required|string',
+            'slug' => 'nullable|string'
+
+            // 'id' => ['required', 'numeric', Rule::unique('comic')->ignore($comic->id)]
+        ]);
+        
         $data = $request->all();
-        // $comic->fill($data);
-        // $comic->slug = Str::slug($comic->title);
         
         $comic->update($data);
         $data['slug'] = Str::slug($data['title']);
 
-        // $comic->save();
         return to_route('comics.show', $comic->id);
     }
 
