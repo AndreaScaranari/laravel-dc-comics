@@ -23,6 +23,11 @@
             <div class="d-flex justify-content-evenly">
                 <a href="{{ url("/comics/$comic->id/edit") }}" class="btn btn-warning">Modifica</a>
                 <a href="{{ route('comics.index') }}" class="btn btn-secondary">Go Back!</a>
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Elimina</button>
+                </form>
             </div>
         </div>
     </main>
