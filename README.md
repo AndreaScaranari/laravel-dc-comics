@@ -27,3 +27,15 @@ Aiutatevi con slide e documentazione!
 ### BONUS
 - Provare a implementare la validazione come visto stamattina!
 - Provare a unire i form di edit e create.
+
+## Data: 18/03
+Proseguiamo con l'esercizio Comics e aggiungiamo la possibilità di eliminare un fumetto!<br>
+Ci servirà una rotta per l'effettiva eliminazione del fumetto nel database e un bottone per richiamarla!<br>
+Aggiungiamo poi una validazione alla creazione e alla modifica se non lo avete già fatto.<br>
+Aiutatevi con slide e documentazione!
+### BONUS
+chiedere conferma all'utente quando prova ad eliminare un fumetto
+provare ad effettuare la validazione con le FormRequest
+provare ad implementare le soft deletes
+### SUPER BONUS
+provare a usare la modale di Bootstrap per chiedere conferma della cancellazione
