@@ -21,7 +21,7 @@
         </div>
     </main>
 
-    @yield('script')
+    @yield('scripts')
 
 </body>
 
