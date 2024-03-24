@@ -39,7 +39,7 @@
         deleteForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const confirmation = confirm('Sei sicuro di voler eliminare questo fumetto?');
+            const confirmation = confirm('Sei sicuro di voler eliminare il fumetto {{ $comic->title }}?');
             if (confirmation) deleteForm.submit();
         });
     </script>
